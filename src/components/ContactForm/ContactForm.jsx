@@ -30,6 +30,7 @@ const ContactForm = () => {
       }}
     >
       <Form>
+        <h2>Add another contact to your phonebook</h2>
         <FormField>
           Name
           <Field name="name" placeholder="Name" />
