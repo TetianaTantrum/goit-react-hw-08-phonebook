@@ -8,9 +8,9 @@ import {
   Button,
 } from 'components/ContactForm/ContactForm.styled';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/operations';
+import { login } from 'redux/auth/operations';
 
-const LogInSchema = Yup.object().shape({
+const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
     .min(8, 'Too Short!')
@@ -18,15 +18,15 @@ const LogInSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const LogInForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
 
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
-      validationSchema={LogInSchema}
+      validationSchema={LoginSchema}
       onSubmit={(values, actions) => {
-        dispatch(logIn({ ...values }));
+        dispatch(login({ ...values }));
         actions.resetForm();
       }}
     >
@@ -47,4 +47,4 @@ const LogInForm = () => {
   );
 };
 
-export default LogInForm;
+export default LoginForm;

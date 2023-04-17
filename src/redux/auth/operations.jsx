@@ -6,6 +6,7 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 // // Utility to add JWT
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  console.log('1', token);
 };
 
 // // Utility to remove JWT
@@ -35,7 +36,7 @@ export const register = createAsyncThunk(
 //  * POST @ /users/login
 //  * body: { email, password }
 //  */
-export const logIn = createAsyncThunk(
+export const login = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
@@ -53,7 +54,7 @@ export const logIn = createAsyncThunk(
 //  * POST @ /users/logout
 //  * headers: Authorization: Bearer token
 //  */
-export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
+export const logout = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
     // After a successful logout, remove the token from the HTTP header
