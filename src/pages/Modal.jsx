@@ -3,12 +3,16 @@ import React from 'react';
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/contacts/operations';
+import { editContact, fetchContacts } from 'redux/contacts/operations';
 import { selectIsLoading } from 'redux/contacts/selectors';
 
 export default function Modal({ contact }) {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
+
+  useEffect(() => {
+    dispatch(editContact());
+  }, [contact.id, dispatch]);
 
   useEffect(() => {
     dispatch(fetchContacts());
