@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ContactListItem from './ContactListItem';
 import { Table, Wrapper } from './ContactList.styled';
 import { useSelector } from 'react-redux';
@@ -20,13 +19,5 @@ const ContactList = () => {
       </Table>
     </Wrapper>
   );
-};
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  onDelete: PropTypes.func.isRequired,
 };
 export default ContactList;

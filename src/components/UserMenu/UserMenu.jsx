@@ -17,9 +17,7 @@ export const UserMenu = () => {
 
   return (
     <Container>
-      <p>
-        You're logged in as <b>{user.email}</b>
-      </p>
+      <p>You're logged in as {user.email}</p>
       <Wrapper>
         <IconWrapperUser>
           <IoPersonOutline size={28} />
