@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
@@ -20,14 +20,27 @@ export const Section = styled.section`
   border: 1px solid #686b76;
 `;
 
+export const Wrapper = styled.div`
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+`;
+
+export const fadeIn = keyframes`from { opacity: 0; } to { opacity: 1; }`;
+
 export const Title = styled.h1`
-  font-weight: 700;
-  font-size: 50px;
-  text-align: center;
+  font-size: 3rem;
+  color: #148eff;
+  margin: 0;
+  animation: ${fadeIn} 1s ease-in;
 `;
 
 export const Text = styled.p`
-  font-weight: 400;
-  font-size: 20px;
-  text-align: center;
+  font-size: 1.5rem;
+  color: #f8de7e;
+  margin: 0;
+  animation: ${fadeIn} 1s ease-in;
 `;

@@ -6,7 +6,6 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 // // Utility to add JWT
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  console.log('1', token);
 };
 
 // // Utility to remove JWT

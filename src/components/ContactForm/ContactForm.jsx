@@ -2,7 +2,13 @@ import React from 'react';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
-import { Form, FormField, ErrorMessage, Button } from './ContactForm.styled';
+import {
+  Form,
+  FormField,
+  ErrorMessage,
+  Button,
+  Title,
+} from './ContactForm.styled';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 
@@ -30,7 +36,7 @@ const ContactForm = () => {
       }}
     >
       <Form>
-        <h2>Add another contact to your phonebook</h2>
+        <Title>Add another contact to your phonebook</Title>
         <FormField>
           Name
           <Field name="name" placeholder="Name" />
