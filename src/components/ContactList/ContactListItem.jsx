@@ -13,11 +13,10 @@ import {
 import { RxCross1 } from 'react-icons/rx';
 import { FiEdit2 } from 'react-icons/fi';
 import { Cover } from './ContactList.styled';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const ContactListItem = ({ contact }) => {
   const dispatch = useDispatch();
-  const id = contact.id;
 
   return (
     <TableRow>
@@ -26,11 +25,16 @@ const ContactListItem = ({ contact }) => {
       <TableCell>
         <Cover>
           <IconWrapperEdit>
-            <Link to={`${id}`} contact={contact} key={contact.id}>
+            {/* <Link to={`/contacts/${contact.id}`} contact={contact} key={contact.id}>
               <ButtonEdit type="submit">
                 <FiEdit2 size={20} />
               </ButtonEdit>
-            </Link>
+            </Link> */}
+            <NavLink to={`${contact.id}`} contact={contact} key={contact.id}>
+              <ButtonEdit type="submit">
+                <FiEdit2 size={20} />
+              </ButtonEdit>
+            </NavLink>
           </IconWrapperEdit>
           <IconWrapperCross>
             <ButtonClose
