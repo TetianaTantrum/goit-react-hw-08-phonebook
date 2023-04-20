@@ -79,6 +79,7 @@ export const IconWrapperEdit = styled.div`
     background-color: none;
   }
 `;
+
 export const TableRow = styled.tr`
   background-color: #f5f5f5;
   transition: background-color 0.2s ease-in-out;

@@ -2,15 +2,10 @@ import React from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
-import {
-  Form,
-  FormField,
-  ErrorMessage,
-} from 'components/ContactForm/ContactForm.styled';
 import { useDispatch } from 'react-redux';
 import { editContact } from 'redux/contacts/operations';
 import { IconWrapperEdit } from 'components/ContactList/ContactListItem.styled';
-import { ButtonAdd } from './Modal.styled';
+import { ButtonAdd, ErrorMessage, Form, FormField } from './ModalForm.styled';
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -23,7 +18,7 @@ const ContactSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const ModalForm = ({ contact }) => {
+const ModalForm = ({ contact, handleCloseModal }) => {
   const dispatch = useDispatch();
 
   const contactName = contact.name;
@@ -34,7 +29,14 @@ const ModalForm = ({ contact }) => {
         initialValues={{ name: `${contact.name}`, number: `${contact.number}` }}
         validationSchema={ContactSchema}
         onSubmit={(values, actions) => {
-          dispatch(editContact({ ...values, id: contact.id }));
+          dispatch(
+            editContact({
+              name: values.name,
+              number: values.number,
+              id: contact.id,
+            }),
+            handleCloseModal()
+          );
           actions.resetForm();
         }}
       >
