@@ -4,6 +4,7 @@ export default function Login() {
   return (
     <div>
       <title>Log in</title>
+
       <LoginForm />
     </div>
   );
