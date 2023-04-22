@@ -10,8 +10,19 @@ import {
   WelcomeMessage,
   Wrapper,
 } from './UserMenu.styled';
+// import { useState } from 'react';
+// import FormPhoto from 'components/FormPhoto/FormPhoto';
 
 export const UserMenu = () => {
+  // const [isFormPhotoOpen, setIsFormPhotoOpen] = useState(false);
+  // const handleOpenFormPhoto = () => {
+  //   setIsFormPhotoOpen(true);
+  // };
+
+  // const handleCloseFormPhoto = () => {
+  //   setIsFormPhotoOpen(false);
+  // };
+
   const dispatch = useDispatch();
   const { user } = useAuth();
 
@@ -20,14 +31,19 @@ export const UserMenu = () => {
       <p>You're logged in as {user.email}</p>
       <Wrapper>
         <IconWrapperUser>
+          {/* <Button type="button" onClick={handleOpenFormPhoto}> */}
           <IoPersonOutline size={28} />
           <WelcomeMessage>Welcome, {user.name}</WelcomeMessage>
+          {/* </Button> */}
         </IconWrapperUser>
-        <Button type="button" onClick={() => dispatch(logout())}>
-          <IconWrapperLogout>
+        {/* {isFormPhotoOpen && (
+          <FormPhoto handleCloseFormPhoto={handleCloseFormPhoto} />
+        )} */}
+        <IconWrapperLogout>
+          <Button type="button" onClick={() => dispatch(logout())}>
             <IoLogOutOutline size={32} />
-          </IconWrapperLogout>
-        </Button>
+          </Button>
+        </IconWrapperLogout>
       </Wrapper>
     </Container>
   );

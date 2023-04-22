@@ -1,11 +1,11 @@
-import ModalForm from 'components/ModalForm/ModalForm';
+import EditForm from 'components/EditForm/EditForm';
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectIsLoading } from 'redux/contacts/selectors';
 
-export default function Modal({ contact, handleCloseModal }) {
+export default function Edit({ contact, handleCloseEdit }) {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
 
@@ -15,20 +15,20 @@ export default function Modal({ contact, handleCloseModal }) {
 
   return (
     <div>
-      <ModalForm contact={contact} handleCloseModal={handleCloseModal} />
+      <EditForm contact={contact} handleCloseEdit={handleCloseEdit} />
       {isLoading && <div>Loading...</div>}
     </div>
   );
 }
 
-// import ModalForm from 'components/ModalForm/ModalForm';
+// import EditForm from 'components/EditForm/EditForm';
 // import React from 'react';
 // import { useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchContacts } from 'redux/contacts/operations';
 // import { selectIsLoading } from 'redux/contacts/selectors';
 
-// export default function Modal({ contact }) {
+// export default function Edit({ contact }) {
 //   const dispatch = useDispatch();
 //   const isLoading = useSelector(selectIsLoading);
 
@@ -38,9 +38,9 @@ export default function Modal({ contact, handleCloseModal }) {
 
 //   return (
 //     <div>
-//       <title>Modal</title>
+//       <title>Edit</title>
 //       <div>{isLoading && 'Request in progress...'}</div>
-//       <ModalForm contact={contact} key={contact.id} />
+//       <EditForm contact={contact} key={contact.id} />
 //     </div>
 //   );
 // }

@@ -50,7 +50,7 @@ const RegisterForm = () => {
           <Field name="password" type="password" placeholder="password" />
           <ErrorMessage name="password" component="div" />
         </FormField>
-        <Button type="submit">Register</Button>
+        <Button type="submit">Sign in</Button>
       </Form>
     </Formik>
   );

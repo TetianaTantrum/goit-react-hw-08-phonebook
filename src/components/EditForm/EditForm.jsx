@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { editContact } from 'redux/contacts/operations';
 import { IconWrapperEdit } from 'components/ContactList/ContactListItem.styled';
-import { ButtonAdd, ErrorMessage, Form, FormField } from './ModalForm.styled';
+import { ButtonAdd, ErrorMessage, Form, FormField } from './EditForm.styled';
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -18,7 +18,7 @@ const ContactSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const ModalForm = ({ contact, handleCloseModal }) => {
+const EditForm = ({ contact, handleCloseEdit }) => {
   const dispatch = useDispatch();
 
   const contactName = contact.name;
@@ -35,7 +35,7 @@ const ModalForm = ({ contact, handleCloseModal }) => {
               number: values.number,
               id: contact.id,
             }),
-            handleCloseModal()
+            handleCloseEdit()
           );
           actions.resetForm();
         }}
@@ -62,4 +62,4 @@ const ModalForm = ({ contact, handleCloseModal }) => {
     </div>
   );
 };
-export default ModalForm;
+export default EditForm;
