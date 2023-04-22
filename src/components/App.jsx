@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-// import { Container } from 'components/App.styled';
+import { Container } from 'components/App.styled';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { useAuth } from 'hooks/useAuth';
@@ -27,46 +27,49 @@ export const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    // <Container>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute
-              redirectTo="/contacts"
-              component={<RegisterPage />}
-            />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
-          }
-        />
-        <Route
-          path="/contacts"
-          element={
-            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
-          }
-        />
-        <Route
-          path="/contacts/:contactId"
-          element={
-            <PrivateRoute redirectTo="/login" component={<EditPage />} />
-          }
-        />
-        <Route
-          path="/upload"
-          element={
-            <PrivateRoute redirectTo="/login" component={<UploadPage />} />
-          }
-        />
-      </Route>
-    </Routes>
-    // </Container>
+    <Container>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+            }
+          />
+          <Route
+            path="/contacts/:contactId"
+            element={
+              <PrivateRoute redirectTo="/login" component={<EditPage />} />
+            }
+          />
+          <Route
+            path="/upload"
+            element={
+              <PrivateRoute redirectTo="/login" component={<UploadPage />} />
+            }
+          />
+        </Route>
+      </Routes>
+    </Container>
   );
 };
 // {/* <Section>

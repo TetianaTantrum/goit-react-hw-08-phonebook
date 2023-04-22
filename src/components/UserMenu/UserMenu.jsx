@@ -39,11 +39,11 @@ export const UserMenu = () => {
         {/* {isFormPhotoOpen && (
           <FormPhoto handleCloseFormPhoto={handleCloseFormPhoto} />
         )} */}
-        <IconWrapperLogout>
-          <Button type="button" onClick={() => dispatch(logout())}>
+        <Button type="button" onClick={() => dispatch(logout())}>
+          <IconWrapperLogout>
             <IoLogOutOutline size={32} />
-          </Button>
-        </IconWrapperLogout>
+          </IconWrapperLogout>
+        </Button>
       </Wrapper>
     </Container>
   );
