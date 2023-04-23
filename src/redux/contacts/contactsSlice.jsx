@@ -13,20 +13,6 @@ const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 };
-// const handleEditContact = (state, action) => {
-//   return {
-//     ...state,
-//     isLoading: false,
-//     error: null,
-//     items: state.items.map(item => {
-//       if (item.id === action.payload.id) {
-//         return action.payload;
-//       }
-//       return item;
-//     }),
-//   };
-// };
-
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
@@ -60,24 +46,6 @@ const contactsSlice = createSlice({
         );
         state.items.splice(index, 1);
         state.items.push(action.payload);
-
-        // state.isLoading = false;
-        // state.error = null;
-        // state.items = state.items.map(item => {
-        //   if (item.id === action.payload.id) {
-        //     state.items.push(action.payload);
-        //   }
-        //   return item;
-        // });
-
-        // state.isLoading = false;
-        // state.error = null;
-        // state.items = state.items.map(item => {
-        //   if (item.id === action.payload.id) {
-        //     return action.payload;
-        //   }
-        //   return item;
-        // });
       })
 
       .addCase(editContact.rejected, handleRejected)
