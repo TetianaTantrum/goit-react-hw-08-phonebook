@@ -4,7 +4,7 @@
 // export default function Upload() {
 //   return (
 //     <div>
-//       <title>Sign in</title>
+//       <title>Sign up</title>
 //       <NavLink to="/upload">upload</NavLink>
 //       <FormPhoto />
 //     </div>
